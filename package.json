@@ -1,0 +1,22 @@
+{
+  "name": "CPass-UI",
+  "version": "0.0.1",
+  "description": "CPass UI",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "keywords": [
+    "CrypTag",
+    "cpass"
+  ],
+  "author": "",
+  "license": "IST",
+  "devDependencies": {
+    "electron-prebuilt": "^1.2.0"
+  },
+  "dependencies": {
+    "jquery": "^3.0.0",
+    "shelljs": "^0.7.0"
+  }
+}
