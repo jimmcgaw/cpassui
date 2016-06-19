@@ -7,16 +7,13 @@
   <body>
     <h1>CPass UI - Tag Search</h1>
 
-    <input type="text" name="name" value="" id="search-value" placeholder="enter tag value">
-
-    <button type="button" name="button" id="search">Search</button>
-
-    <div id="results"></div>
+    <div id="root"></div>
 
   </body>
 
   <script>
     // You can also require other files to run in this process
+    require('babel-register');
     require('./renderer.js')
   </script>
 </html>
