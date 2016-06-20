@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 const jQuery = require('jquery');
 const shelljs = require('shelljs');
 
-import Results from './components/Results';
+import ResultList from './components/ResultList';
 import SearchForm from './components/SearchForm';
 
 export default class App extends Component {
@@ -45,7 +45,7 @@ export default class App extends Component {
       });
 
       if (results.length > 0){
-        let clipboardMessage = "Added first result `" + firstPassword + "` to clipboard";
+        clipboardMessage = "Added first result `" + firstPassword + "` to clipboard";
       }
 
       this.setState({
@@ -59,9 +59,14 @@ export default class App extends Component {
 
     return (
       <div>
-        <SearchForm executeSearch={this.executeSearch} onChangeTagValue={this.onChangeTagValue} />
+        <div className="row">
+          <SearchForm
+            executeSearch={this.executeSearch}
+            onChangeTagValue={this.onChangeTagValue}
+            clipboardMessage={this.state.clipboardMessage} />
+        </div>
 
-        <Results results={this.state.results} />
+        <ResultList results={this.state.results} />
       </div>
     );
   }
