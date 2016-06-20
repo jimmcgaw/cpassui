@@ -15,7 +15,7 @@ class SearchBox extends Component {
 
     this.state = {
       searchValue: '',
-      results: ''
+      results: []
     };
 
     this.onChangeTagValue = this.onChangeTagValue.bind(this);
@@ -36,14 +36,12 @@ class SearchBox extends Component {
 
       let firstPassword = passwordEntries[0].split(' ')[0];
 
-      var output = [];
-      output.push("Added first result `" + firstPassword + "` to clipboard");
-      output.push('\n\n');
-      output.push(stdout);
+      var results = [];
+      results.push("Added first result `" + firstPassword + "` to clipboard");
+      results.push(stdout);
 
-      var allOutput = output.join("");
       this.setState({
-        'results': allOutput
+        'results': results
       });
     });
   }
@@ -53,10 +51,12 @@ class SearchBox extends Component {
 
     return (
       <div>
-        <input onChange={this.onChangeTagValue} />
+        <input type="text" onChange={this.onChangeTagValue} />
         <button onClick={this.executeSearch}>Search</button>
 
-        <div>{results}</div>
+        <div>{results.map( (result) => {
+            return <div>{result}</div>;
+          } )}</div>
       </div>
     );
   }
