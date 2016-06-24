@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-const jQuery = require('jquery');
-const shelljs = require('shelljs');
+const request = require('superagent');
+const cryptagdPrefix = require('superagent-prefix')('http://localhost:7878/trusted');
 
 import ResultList from './components/ResultList';
 import SearchForm from './components/SearchForm';
@@ -26,31 +26,48 @@ export default class App extends Component {
     });
   }
 
+  resultsFromRows(rows){
+    let results = [];
+
+    rows.forEach( (row) => {
+      results.push({
+        "key": row.plaintags[0], // id:...
+        "password": atob(row.unencrypted),
+        "tags": row.plaintags
+      })
+    })
+
+    return results;
+  }
+
   executeSearch(e){
     e.preventDefault();
 
-    let command = 'cpass ' + this.state.searchValue;
-    shelljs.exec(command, (code, stdout) => {
-      let passwordEntries = stdout.split('\n\n');
+    // TODO: Ensure no commas appear in the search terms
+    let plaintags = this.state.searchValue.trim().split(/\s+/g);
 
-      let firstPassword = passwordEntries[0].split('   ')[0];
+    // Only fetch passwords
+    plaintags.push('type:password');
 
-      let results = [];
-      let clipboardMessage = '';
+    request
+      .get('/rows?plaintags=' + plaintags.join(','))
+      .use(cryptagdPrefix)
+      .end( (err, res) => {
+        if (err) {
+          this.setState({
+            'results': [],
+            'clipboardMessage': res.body.error
+          });
+          return
+        }
 
-      passwordEntries.forEach(function(result){
-        results.push(result);
+        let results = this.resultsFromRows(res.body);
+
+        this.setState({
+          'results': results,
+          'clipboardMessage': ''
+        });
       });
-
-      if (results.length > 0){
-        clipboardMessage = "Added first result `" + firstPassword + "` to clipboard";
-      }
-
-      this.setState({
-        'results': results,
-        'clipboardMessage': clipboardMessage
-      });
-    });
   }
 
   render(){

@@ -16,7 +16,7 @@ export default class ResultList extends Component {
         </thead>
         <tbody>
           {results.map( (result) => {
-            return <Result result={result} />;
+            return <Result key={result.key} result={result} />;
           } )}
         </tbody>
       </table>
