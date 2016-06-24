@@ -31,16 +31,14 @@ export default class App extends Component {
 
     let command = 'cpass ' + this.state.searchValue;
     shelljs.exec(command, (code, stdout) => {
-      let value = stdout;
       let passwordEntries = stdout.split('\n\n');
 
       let firstPassword = passwordEntries[0].split(' ')[0];
 
       let results = [];
       let clipboardMessage = '';
-      let passwordResults = stdout.split("\n\n");
 
-      passwordResults.forEach(function(result){
+      passwordEntries.forEach(function(result){
         results.push(result);
       });
 
