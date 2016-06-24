@@ -10,7 +10,7 @@ export default class Result extends Component {
   }
 
   onCopyResult(){
-    let password = this.props.result.split(' ')[0];
+    let password = this.props.result.split('   ')[0];
     clipboard.writeText(password);
   }
 

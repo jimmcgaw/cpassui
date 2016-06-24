@@ -33,7 +33,7 @@ export default class App extends Component {
     shelljs.exec(command, (code, stdout) => {
       let passwordEntries = stdout.split('\n\n');
 
-      let firstPassword = passwordEntries[0].split(' ')[0];
+      let firstPassword = passwordEntries[0].split('   ')[0];
 
       let results = [];
       let clipboardMessage = '';
