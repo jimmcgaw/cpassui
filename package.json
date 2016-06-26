@@ -26,7 +26,6 @@
     "electron-packager": "^7.0.4",
     "electron-prebuilt": "^1.2.0",
     "enzyme": "^2.3.0",
-    "minimist": "^1.2.0",
     "react-addons-test-utils": "^15.1.0",
     "spectron": "^3.2.3",
     "webdriverio": "^4.1.1"
