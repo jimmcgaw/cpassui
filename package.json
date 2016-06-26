@@ -1,6 +1,6 @@
 {
   "name": "CPass-UI",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CPass UI",
   "main": "main.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "react-dom": "^15.1.0"
   },
   "dependencies": {
-    "jquery": "^3.0.0",
-    "shelljs": "^0.7.0"
+    "superagent": "^2.0.0",
+    "superagent-prefix": "^0.0.2"
   }
 }

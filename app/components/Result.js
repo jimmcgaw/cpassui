@@ -10,15 +10,15 @@ export default class Result extends Component {
   }
 
   onCopyResult(){
-    let password = this.props.result.split('   ')[0];
-    clipboard.writeText(password);
+    clipboard.writeText(this.props.result.password);
   }
 
   render(){
     let result = this.props.result;
     return (
       <tr>
-        <td>{result}</td>
+        <td>{result.password}</td>
+        <td>{result.tags.join(", ")}</td>
         <td>
           <button className="btn btn-default" onClick={this.onCopyResult}>copy</button>
         </td>
