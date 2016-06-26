@@ -10,6 +10,23 @@ should be. Go install it. It's awesome.
 
 ## Pre-requisites
 
+Install either `cpass` to store passwords to a local folder, or
+`cpass-sandstorm` to store them in [Sandstorm](https://sandstorm.io/)
+(once you install
+[the CrypTag Sandstorm app](https://apps.sandstorm.io/app/mkq3a9jyu6tqvzf7ayqwg620q95p438ajs02j0yx50w2aav4zra0)
+).
+
+### cpass
+
+Make sure you have Go installed, then run:
+
+    $ go get github.com/elimisteve/cryptag/cmd/cpass
+    $ cpass
+
+For more on getting started with `cpass`, including how to store and
+fetch passwords at the command line, see
+<https://github.com/elimisteve/cryptag#getting-started-with-cryptpass>.
+
 ### cpass-sandstorm
 
 Make sure you have Go installed, then run:
