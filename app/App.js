@@ -32,7 +32,10 @@ export default class App extends Component {
     // TODO: Ensure no commas appear in the search terms
     let plaintags = this.state.searchValue.trim().split(/\s+/g);
 
-    // Only fetch passwords
+    // Only fetch text, not files or custom data types
+    plaintags.push('type:text');
+
+    // Only fetch passwords, not other text like bookmarks, commands, etc
     // plaintags.push('type:password');
 
     request
