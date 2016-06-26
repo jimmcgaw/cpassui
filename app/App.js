@@ -26,20 +26,6 @@ export default class App extends Component {
     });
   }
 
-  resultsFromRows(rows){
-    let results = [];
-
-    rows.forEach( (row) => {
-      results.push({
-        "key": row.plaintags[0], // id:...
-        "password": atob(row.unencrypted),
-        "tags": row.plaintags
-      })
-    })
-
-    return results;
-  }
-
   executeSearch(e){
     e.preventDefault();
 
@@ -53,19 +39,24 @@ export default class App extends Component {
       .get('/rows?plaintags=' + plaintags.join(','))
       .use(cryptagdPrefix)
       .end( (err, res) => {
+        let results = [];
+        let clipboardMessage = '';
+
         if (err) {
-          this.setState({
-            'results': [],
-            'clipboardMessage': res.body.error
+          clipboardMessage = res.body.error;
+        } else {
+          results = res.body.map((result) => {
+            return {
+              "key": result.plaintags[0], // id:...
+              "password": atob(result.unencrypted),
+              "tags": result.plaintags
+            };
           });
-          return
         }
 
-        let results = this.resultsFromRows(res.body);
-
         this.setState({
-          'results': results,
-          'clipboardMessage': ''
+          results: results,
+          clipboardMessage: clipboardMessage
         });
       });
   }
