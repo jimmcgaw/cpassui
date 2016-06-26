@@ -2,10 +2,8 @@ var Application = require('spectron').Application;
 var assert = require('assert');
 import { expect } from 'chai';
 
-var argv = require('minimist')(process.argv.slice(2));
-var platform = argv.platform;
 var filename = 'CPass-darwin-x64/CPass.app/Contents/MacOS/CPass'
-if (platform.indexOf('linux') > -1){
+if (process.platform === 'linux'){
   filename = 'CPass-linux-x64/CPass';
 }
 

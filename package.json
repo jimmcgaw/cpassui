@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron main.js",
     "build": "electron-packager ./ CPass --platform=darwin --arch=x64 --overwrite",
-    "test": "node_modules/.bin/mocha test/.setup.js test/**/*.test.js --platform=darwin"
+    "test": "node_modules/.bin/mocha test/.setup.js test/**/*.test.js"
   },
   "keywords": [
     "CrypTag",
