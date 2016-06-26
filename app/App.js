@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 const request = require('superagent');
 const cryptagdPrefix = require('superagent-prefix')('http://localhost:7878/trusted');
+const utf8 = require('utf8');
 
 import ResultList from './components/ResultList';
 import SearchForm from './components/SearchForm';
@@ -55,7 +56,7 @@ export default class App extends Component {
           results = res.body.map((result) => {
             return {
               "key": result.plaintags[0], // id:...
-              "password": atob(result.unencrypted),
+              "password": utf8.decode(atob(result.unencrypted)),
               "tags": result.plaintags
             };
           });
