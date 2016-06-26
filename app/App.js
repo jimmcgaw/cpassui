@@ -27,6 +27,15 @@ export default class App extends Component {
     });
   }
 
+  tagByPrefix(plaintags, prefix) {
+    for (let i = 0; i < plaintags.length; i++) {
+      if (plaintags[i].startsWith(prefix)) {
+        return plaintags[i];
+      }
+    }
+    return '';
+  }
+
   executeSearch(e){
     e.preventDefault();
 
@@ -55,7 +64,7 @@ export default class App extends Component {
         } else {
           results = res.body.map((result) => {
             return {
-              "key": result.plaintags[0], // id:...
+              "key": this.tagByPrefix(result.plaintags, "id:"),
               "password": utf8.decode(atob(result.unencrypted)),
               "tags": result.plaintags
             };
