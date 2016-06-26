@@ -44,3 +44,15 @@ meanwhile, in another terminal, run CPass UI (see next section).
 then
 
 ``` $ npm start ```
+
+## Testing
+
+There are some placeholder tests included here that test the rendering of the individual components
+and the final compiled version of the app. You'll need to build the app first:
+
+``` $ npm run build ```
+
+If you're on Linux, you'll need to tweak the package.json "build" and "test" tasks to use --platform=linux.
+(TODO: automate this based on system platform detection.)
+
+``` $ npm test ```

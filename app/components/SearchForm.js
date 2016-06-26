@@ -6,7 +6,7 @@ export default class SearchForm extends Component {
       <form role="form" className="form" onSubmit={this.props.executeSearch}>
 
         <div className="row">
-          <input className="form-control" type="text" onChange={this.props.onChangeTagValue} placeholder="enter tag" />
+          <input className="form-control search-box" type="text" onChange={this.props.onChangeTagValue} placeholder="enter tag" />
         </div>
         <br />
         <div className="row">

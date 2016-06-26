@@ -47,7 +47,7 @@ export default class App extends Component {
     let plaintags = this.state.searchValue.trim().split(/\s+/g);
 
     // Only fetch passwords
-    plaintags.push('type:password');
+    // plaintags.push('type:password');
 
     request
       .get('/rows?plaintags=' + plaintags.join(','))
@@ -71,7 +71,6 @@ export default class App extends Component {
   }
 
   render(){
-
     return (
       <div>
         <div className="row">
