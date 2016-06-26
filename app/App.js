@@ -43,7 +43,11 @@ export default class App extends Component {
         let clipboardMessage = '';
 
         if (err) {
-          clipboardMessage = res.body.error;
+          if (typeof res === 'undefined') {
+            clipboardMessage = err.toString();
+          } else {
+            clipboardMessage = res.body.error;
+          }
         } else {
           results = res.body.map((result) => {
             return {
