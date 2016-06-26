@@ -52,7 +52,10 @@ and the final compiled version of the app. You'll need to build the app first:
 
 ``` $ npm run build ```
 
-If you're on Linux, you'll need to tweak the package.json "build" and "test" tasks to use --platform=linux.
+If you're on Linux, instead run:
+
+``` $ npm run build-linux ```
+
 (TODO: automate this based on system platform detection.)
 
 ``` $ npm test ```
