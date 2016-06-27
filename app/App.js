@@ -23,7 +23,7 @@ export default class App extends Component {
 
   onChangeTagValue(e){
     this.setState({
-      'searchValue': e.target.value
+      searchValue: e.target.value
     });
   }
 
@@ -64,9 +64,9 @@ export default class App extends Component {
         } else {
           results = res.body.map((result) => {
             return {
-              "key": this.tagByPrefix(result.plaintags, "id:"),
-              "password": utf8.decode(atob(result.unencrypted)),
-              "tags": result.plaintags
+              key: this.tagByPrefix(result.plaintags, "id:"),
+              password: utf8.decode(atob(result.unencrypted)),
+              tags: result.plaintags
             };
           });
         }
