@@ -1,3 +1,10 @@
+# Deprecation Notice
+
+This repo served as a quick 'n' dirty place to kick off development for a UI for CrypTag, but
+this code is no longer actively being developed.
+
+If you'd like to contribute to this project, see [CrypTask](https://github.com/elimisteve/cryptask).
+
 # CPass UI
 
 This is a desktop app made with electron and React.js that is designed as a simple UI wrapper for
