@@ -10,13 +10,14 @@ export default class ResultList extends Component {
       <table role="table" className="table table-striped">
         <thead>
           <tr>
-            <th>Results</th>
-            <th></th>
+            <th className="col-sm-3">Password</th>
+            <th className="col-sm-8">Tags</th>
+            <th className="col-sm-1"></th>
           </tr>
         </thead>
         <tbody>
           {results.map( (result) => {
-            return <Result result={result} />;
+            return <Result key={result.key} result={result} />;
           } )}
         </tbody>
       </table>

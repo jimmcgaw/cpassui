@@ -1,2 +1,4 @@
 node_modules
 CPass-darwin-x64/
+CPass-linux-x64/
+*~
